@@ -1,0 +1,136 @@
+{%extends "pgconfeu/base.html" %}
+{%load markup%}
+{%block content%}
+        <!-- Content
+        ================================================== -->
+        <main class="main-content">
+                <div class="container">
+
+                        <!-- What we do -->
+                        <section class="section">
+                                <div class="title-bordered" data-animation="fadeInUp" data-animation-delay="0">
+                                        <h2>Join us in Dallas!</h2>
+                                </div>
+                                <p><b>Connecting business with database innovation.</b></p>
+
+                                <p>PostgresOpen 2015 will be held on September 16-September 18th in Dallas, at the Sheraton Dallas. It will deliver three days packed with tutorials and presentations about PostgreSQL and related technologies, one day of extended trainings, and the usual hallway and social track!</p>
+                                <p>We target entrepreneurs, technologies and decision-makers on the leading edge of data management, open source database innovation and disruption of the database industry.  PostgresOpen will promote the business of PostgreSQL as well as its use and development</p>
+
+                        </section>
+
+                <!-- Secondary Header -->
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                                <h2>Postgres Community</h2>
+                                                <p>The PostgreSQL Community organizes conferences with many technical and business talks by developers and key users.  In addition to PostgresOpen, PostgreSQL Europe will be holding a conference in the Fall of 2015- <a href="http://2015.pgconf.eu">2015.pgconf.eu</a>.</p>
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+
+                <!-- Secondary Header -->
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                                <h2>Important Dates</h2>
+                                                <ul>
+                                                        <li>Call for Presentations Opens: March 15th, 2015</li>
+                                                        <li>Early Bird Registration Opens: May 4th, 2015</li>
+                                                        <li>Call for Presentations Closes: May 17th, 2015</li>
+                                                        <li>Speakers Notified of Talk Acceptance: June 1st, 2015</li>
+                                                        <li>Sessions Announced: June 15th, 2015</li>
+                                                        <li>Early Bird Registration Closes: June 30th, 2015</li>
+                                                        <li>Schedule Announced: July 1st, 2015</li>
+                                                        <li>Regular Registration: July 1st - September 18th, 2015</li>
+                                                        <li>Sheraton Dallas Reservation Deadline: September 2nd, 2015 </li>
+                                                        <li>Conference Dates: September 16th - 18th, 2015</li>
+                                                </ul>
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+
+                <!-- Secondary Header -->
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                                <h2>News</h2>
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+
+                        <!-- Post -->
+			{%for post in posts %}
+                        <article class="post">
+
+                                <div class="post-body clearfix">
+                                        <div class="post-date">
+                                                <div class="post-date-inner">
+                                                        {{post.posttime|date:"M d"}}
+                                                        <span class="post-date-year">{{post.posttime|date:"Y"}}</span>
+                                                </div>
+                                        </div>
+                                        <h2 class="post-title">{{post.title}}</h2>
+                                        <div class="post-excerpt">
+						 {{post.content|markdown}}
+                                        </div>
+					<!--
+                                        <footer class="post-footer">
+                                                <span class="post-author">- PostgresOpen 2015 Committee</span>
+                                        </footer>
+					-->
+                                </div>
+                        </article>
+			{%endfor%}
+                        <!-- Post / End -->
+
+                <!-- Secondary Header -->
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                                <h2>Flickr</h2>
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+                        <section class="section">
+                                        <!-- Flickr Widget -->
+                                        <div class="widget widget__sidebar widget_flickr">
+                                                <div class="widget-title">
+                                                        <h3>Past PostgresOpen</h3>
+                                                </div>
+                                                <!-- Flickr images will appear here -->
+                                                <ul id="flickr" class="thumbs"></ul>
+                                        </div>
+                                        <!-- Flickr Widget / End -->
+                        </section>
+
+
+                </div>
+        </main>
+
+        <script>
+                jQuery(document).ready(function() {
+                        jQuery('.tp-banner').revolution({
+                                delay:6000,
+                                startwidth:1140,
+                                startheight:480,
+                                hideThumbs:10,
+                                fullWidth:"on",
+                                forceFullWidth:"on",
+                                hideCaptionAtLimit:480,
+                                //navigationType: "none",
+                                soloArrowLeftHOffset:20,
+                                soloArrowRightHOffset:20,
+                                soloArrowLeftVOffset:20,
+                                soloArrowRightVOffset:20
+                        });
+                        $("#topmenu").removeClass("active");
+                        $("#topmenuhome").addClass("active");
+           });
+
+        </script>
+
+{%endblock%}

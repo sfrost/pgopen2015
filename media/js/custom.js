@@ -143,7 +143,8 @@ jQuery(function($){
 	$('#flickr').jflickrfeed({
 		limit: 30,
 		qstrings: {
-			id: '103481966@N07'
+			id: '103481966@N07',
+			tags: 'speakers'
 		},
 		itemTemplate: '<li class="thumb"><a class="thumbnail" href="{{link}}" target="_blank"><img src="{{image_q}}" alt="{{title}}" /></a></li>'
 	});

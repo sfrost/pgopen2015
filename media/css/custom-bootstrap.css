@@ -6456,15 +6456,17 @@ a:focus {
     color: #97c290;
 }
 .top-wrapper {
-    background-image: url(/media/img/hero.jpg);
+    background: url(/media/img/hero.jpg) no-repeat center center fixed;
     background-color: #77bb97;
-    background-position: center center;
     position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
 }
 @media (-webkit-min-device-pixel-ratio:2), (min-resolution:192dpi) {
     .top-wrapper {
-    background-size: 512px 512px;
+    background-size: cover;
     background-image: url(/media/img/hero.jpg);
 }
 }.top-wrapper:before {

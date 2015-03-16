@@ -1,0 +1,66 @@
+{%extends "pgconfeu/base.html" %}
+{%load markup%}
+{%block content%}
+        <!-- Content
+        ================================================== -->
+        <main class="main-content">
+		{%for blog in blogposts %}
+                <div class="container">
+
+                <!-- Secondary Header -->
+                        <section class="section">
+                                <div class="clearfix">
+                                        <div class="title title__lg pull-left">
+                                                <h2>{{blog.title}}</h2>
+                                                <h4>Posted By: {{blog.sponsor.name}} on {{blog.posttime|date:"M d Y"}}</h4>
+                                        </div>
+                                </div>
+                        </section>
+                        <!-- Secondary Header -->
+
+                        <!-- Post -->
+                        <article class="post">
+
+                                <div class="post-body clearfix">
+					<div class="post-date">
+						<img src="/media/img/sponsors/2015/{{blog.sponsor.logo}}" />
+					</div>
+                                        <div class="post-excerpt">
+						 {{blog.content|markdown}}
+                                        </div>
+					<!--
+                                        <footer class="post-footer">
+                                                <span class="post-author">- PostgresOpen 2015 Committee</span>
+                                        </footer>
+					-->
+                                </div>
+                        </article>
+                        <!-- Post / End -->
+
+                </div>
+		{%endfor%}
+        </main>
+
+        <script>
+                jQuery(document).ready(function() {
+                        jQuery('.tp-banner').revolution({
+                                delay:6000,
+                                startwidth:1140,
+                                startheight:480,
+                                hideThumbs:10,
+                                fullWidth:"on",
+                                forceFullWidth:"on",
+                                hideCaptionAtLimit:480,
+                                //navigationType: "none",
+                                soloArrowLeftHOffset:20,
+                                soloArrowRightHOffset:20,
+                                soloArrowLeftVOffset:20,
+                                soloArrowRightVOffset:20
+                        });
+                        $("#topmenu").removeClass("active");
+                        $("#topmenublog").addClass("active");
+           });
+
+        </script>
+
+{%endblock%}
